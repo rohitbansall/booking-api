@@ -27,11 +27,11 @@ mongoose.connection.on("disconnected", () => {
 
 //middlewares
 app.use(cors({
-  orgin:["https://booking-client-sand.vercel.app/"],
-  methods:[GET,PUT,POST,DELETE],
+  origin: ["https://booking-client-sand.vercel.app/"],
+  methods: ["GET", "PUT", "POST", "DELETE"],
   credentials: true
+}));
 
-}))
 // app.use((req,res,next)=>{
 //   res.header('Access-Control-Allow-Origin', '*');
 //   next();
@@ -56,7 +56,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, (PORT) => {
-  connect();
-  console.log("Connected to backend ");
+app.listen(PORT, async () => {
+  await connect();
+  console.log("Connected to backend");
 });
+
